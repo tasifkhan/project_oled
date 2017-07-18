@@ -26,12 +26,10 @@ void setup() {
    pinMode(A13, OUTPUT);
 }
 
-// the loop function runs over and over again forever
 void loop() {
-             // wait for a second
     for (int i=2; i <= 55; i++){
       digitalWrite(i, LOW);
-   }             // wait for a second
+   }   
    
    digitalWrite(12, HIGH);
    delay(200);
@@ -63,7 +61,4 @@ void loop() {
    delay(200);
    digitalWrite(29, HIGH);
    delay(200);
-
-
-
 }

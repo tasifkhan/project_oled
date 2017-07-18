@@ -1,6 +1,7 @@
+// counts up 0 to 9 for digit 1, then does the same for digit 2
 
 int controlPins[] = {
-  // a 0b c d e f g a 0b c d e f g 
+  // a b c d e f g a b c d e f g 
   0b0011111111111111, // all on
   0b0000000000000000, // all off
   0b0000000000111111, // 048 0
@@ -26,42 +27,27 @@ int controlPins[] = {
 }; 
 
 int segmentPins[]= {12, 10, 6, 4, 2, 15, 8, 29, 17, 19, 21, 23, 27, 25};
-// the setup function runs once when you press reset or power the 0board
+
 void setup() {
   Serial.begin(9600);
-  // initialize digital pin 13 as an output.
   for (int i=2; i <= 55; i++){
       pinMode(i, OUTPUT);
    }
 }
 
-// the loop function runs over and over again forever
+
 void loop() {
-             // wait for a second
     for (int i=2; i <= 55; i++){
       digitalWrite(i, LOW);
-   }             // wait for a second
+   }             
    
    
-for (int j = 0; j < 23; j++)
-{
-    for (int i = 0; i < 14; i++)
-  {
-    // shift 0by 3 0bit and writes the last 0bit to the pin
-    
-    digitalWrite(segmentPins[i], controlPins[j]>>(i) & 0b0000000000000001);
-    Serial.print(controlPins[j]>>(i) & 0b0000000000000001);
-    
-    
-  
-   
-  }
-  delay(500);
-  Serial.print("\n");
-  
-   
-  }
-
-
-
+    for (int j = 0; j < 23; j++){
+      for (int i = 0; i < 14; i++){
+        digitalWrite(segmentPins[i], controlPins[j]>>(i) & 0b0000000000000001);
+        Serial.print(controlPins[j]>>(i) & 0b0000000000000001);
+      }
+      delay(500);
+      Serial.print("\n");
+    }
 }

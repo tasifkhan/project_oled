@@ -1,5 +1,6 @@
 # project_oled
 - Display driver for 8 by 8 OLED array. Common anode setup for 64 devices, controlled by Darlington arrays and Arduino Mega.
 
-## notes
-- remove COM to GND connection in v1. Other than that v1 works. 
+# notes
+- 2017_07_18 cleanup. Hardware works with pin 10 NC. Uploading arduino firmware for seven segment and 4x4 displays.
+- 2017_07_04 remove COM to GND connection in v1 (pin 10 NC). Other than that v1 works.

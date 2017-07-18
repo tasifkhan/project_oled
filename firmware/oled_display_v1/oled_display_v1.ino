@@ -1,11 +1,9 @@
 /*
-  Lights up all segments of the seven segment display.
-  Yasser Khan
+  displays cal on a 4x4 display
   
  */
 
 int controlPins[] = {
-  // a 0b c d e f g a 0b c d e f g 
   0b1111111111111111, // all on
   0b1111100010001111, // c
   0b1111100111111001, // a
@@ -37,9 +35,8 @@ void setup() {
    pinMode(A13, OUTPUT);
 }
 
-// the loop function runs over and over again forever
+
 void loop() {
-             // wait for a second
     for (int i=2; i <= 55; i++){
       digitalWrite(i, LOW);
    }             
@@ -61,8 +58,7 @@ for (int j = 0; j < 4; j++)
 {
     for (int i = 0; i < 16; i++)
   {
-    // shift 0by 3 0bit and writes the last 0bit to the pin
-    
+
     digitalWrite(segmentPins[i], controlPins[j]>>(i) & 0b0000000000000001);
     Serial.print(controlPins[j]>>(i) & 0b0000000000000001);
     
@@ -75,8 +71,7 @@ for (int j = 0; j < 4; j++)
   
    
   }
-   
-   //digitalWrite(12, HIGH);
+
    
 
 
